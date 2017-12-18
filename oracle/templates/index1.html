@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="icon" href="/static/oracle/assets/ico/favicon.ico">
+
+    <title> </title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/oracle/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/oracle/assets/css/cover.css" rel="stylesheet">
+  </head>
+
+  <body >
+    <div class="bg">
+      <div class="site-wrapper">
+        <div class="site-wrapper-inner">
+          <div class="cover-container">
+            <div class="masthead clearfix">
+              <div class="inner">
+                <h3 class="masthead-brand">Flight Oracle</h3>
+                <nav class="nav nav-masthead">
+
+                  <li class="dropdown">
+                     <a href="" class="nav-link active dropdown-toggle" data-toggle="dropdown" style="width: 100px">Sign in</a>
+                     <ul class="dropdown-menu" style="padding: 15px;min-width: 250px;">
+                        <li>
+                           <div class="row">
+                              <div class="col-md-12">
+                                 <form class="form" role="form" method="GET" action="login" accept-charset="UTF-8" id="login-nav">
+                                    <div class="form-group">
+                                       <label class="sr-only" for="emailInput">Email Address</label>
+                                       <input name="Email" type="email" class="form-control" id="emailInput" placeholder="Email Address" required>
+                                    </div>
+                                    <div class="form-group">
+                                       <label class="sr-only" for="passwordInput">Password</label>
+                                       <input name="Password" type="password" class="form-control" id="passwordInput" placeholder="Password" required>
+                                    </div>
+<!--
+                                    <div class="checkbox">
+                                       <label>
+                                       <input type="checkbox"> Remember me
+                                       </label>
+                                    </div>
+-->
+                                    <div class="form-group">
+                                       <button type="submit" class="btn btn-success btn-block">Sign in</button>
+                                    </div>
+                                 </form>
+                              </div>
+                           </div>
+                          
+                        </li>
+                     </ul>
+                  </li>
+                  <li class="dropdown">
+                     <a href="" class="nav-link active dropdown-toggle" data-toggle="dropdown">Sign up</a>
+                     <ul class="dropdown-menu" style="padding: 15px;min-width: 250px;">
+                        <li>
+                           <div class="row">
+                              <div class="col-md-12">
+                                 <form class="form" role="form" method="GET" action="register" accept-charset="UTF-8" id="login-nav">
+                                   <div class="form-group">
+                                       <label class="sr-only" for="firstNameInput">First Name</label>
+                                       <input name="FirstName" type="text" class="form-control" id="firstNameInput" placeholder="First Name" required>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="sr-only" for="lastNameInput">Last Name</label>
+                                       <input name="LastName" type="text" class="form-control" id="lastNameInput" placeholder="Last Name" required>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="sr-only" for="emailInput">Email Address</label>
+                                       <input name="Email" type="email" class="form-control" id="emailInput" placeholder="Email Address" required>
+                                    </div>
+                                    <div class="form-group">
+                                       <label class="sr-only" for="passwordInput">Password</label>
+                                       <input name="Password" type="password" class="form-control" id="passwordInput" placeholder="Password" required>
+                                    </div>
+                                    <div class="form-group">
+                                       <button type="submit" class="btn btn-success btn-block">Sign up</button>
+                                    </div>
+                                 </form>
+                                 <p >{{registerResult}}</p>
+                              </div>
+                           </div>
+                        </li>
+                     </ul>
+                  </li>
+                </nav>
+              </div>
+            </div>
+
+            <div class="inner cover">
+              <h1 class="cover-heading">Airline Delayed?</h1>
+              <p class="lead">You are in luck! Flight Oracle is an web application that helps you track your flight and predict whether your flight will be delayed or cancelled based on delay history and weather condition. Try it out!</p>
+<!--               <p class="lead">
+                <a href="#" class="btn btn-lg btn-secondary">Get Started</a>
+              </p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="/static/oracle/dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/static/oracle/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/static/oracle/assets/js/sign.js"></script>
+  </body>
+</html>

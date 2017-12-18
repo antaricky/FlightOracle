@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+		<script type="text/javascript">
+        window.onload = function () {
+
+	        
+
+var nums =  '{{viewResult}}';
+	
+
+          
+        var chart = new CanvasJS.Chart("chartContainer", {
+            theme: "light1", // "light2", "dark1", "dark2"
+            //exportEnabled: true,
+           animationEnabled: true, // change to true        
+            title:{
+                text: "Basic Column Chart"
+            },
+          //nums:10, 15, 25, 30, 28
+            data: [
+            {
+                // Change type to "bar", "area", "spline", "pie",etc.
+                type: "column",
+                dataPoints: [
+                    { label: "Average Departure Delay",  y: {{viewResult.0.0}}  },
+                    { label: "Average Arrival Delay", y: {{viewResult.0.1}}  }
+                    /*{ label: "banana", y: {{viewResult.0.0}}  },
+                    { label: "mango",  y: 30  },
+                    { label: "grape",  y: 28  }*/
+                ]
+            }
+            ]
+        });
+        chart.render();
+
+        }
+        </script>
+	</head>
+
+	<body>
+		<div class = "container">
+					
+
+					<form class = "form-control" action="http://172.22.94.218/oracle/find" method="GET">
+						<div>
+							<h1> Find Your Flight!</h1>
+							<label for="Carrier"> Carrier</label>
+						    <select class = "form-control" name="Carrier" id="find_carrier">
+						        <option value="UA" selected="selected">UA</option>
+								<option value="WN">WN</option>
+						        <option value="UA">UA</option>
+						        <option value="DA">DA</option>
+						        <option value="AA">AA</option>
+								<option value="XX">XX</option>
+						    </select>
+						    
+						    <label for="DepartureAirport"> DepartureAirport</label>
+						    <select class = "form-control" name="Departure" id = "find_depature_airport">
+						        <option value="IAD" selected="selected">IAD</option>
+						        <option value="ORD">ORD</option>
+								<option value="IAD">IAD</option>
+						    </select>
+						    
+						    
+						    
+						    <label for="ArrivalAirport"> Arrival airport</label>
+						    <select class = "form-control" name="Arrival" id = "find_arrival_airport">
+						        <option value="ORD" selected="selected">ORD</option>
+						        <option value="ORD">ORD</option>
+								<option value="TPA">TPA</option>
+						    </select>
+						    
+						    <label for="DepartureDate"> Departure Date</label>
+						    <input class = "form-control" type=date name="Date" value="2015-01-01" id = "find_depature_date"> </input>
+						</div>
+					   	<p> </p>
+					    <input class="btn btn-primary" type="submit" value="Submit"> </input>
+					</form>
+					<p>{{result}}</p>
+				
+
+					<form class = "form-control" action = "http://172.22.94.218/oracle/insert" method="GET">
+						<div>
+							<h1> Insert Flight Record!</h1>
+							<label for="Insert_Carrier"> Carrier</label>
+							    <select class = "form-control" name="Carrier" id="insert_carrier">
+							        <option value="UA" selected="selected">UA</option>
+									<option value="WN">WN</option>
+							        <option value="UA">UA</option>
+							        <option value="DA">DA</option>
+							        <option value="AA">AA</option>
+									<option value="XX">XX</option>
+							    </select>
+
+							<label for="Insert_DepartureAirport"> Departure Airport</label>
+							    <select class = "form-control" name="Departure" id = "insert_depature_airport">
+							        <option value="IAD" selected="selected">IAD</option>
+							        <option value="ORD">ORD</option>
+									<option value="IAD">IAD</option>
+							    </select>
+
+							<label for="Insert_ArrivalAirport"> Arrival Airport</label>
+							    <select class = "form-control" name="Arrival" id = "insert_arrival_airport">
+							        <option value="ORD" selected="selected">ORD</option>
+							        <option value="ORD">ORD</option>
+									<option value="TPA">TPA</option>
+							    </select>
+
+							<label for="Insert_FlightNumber"> Flight Number</label>
+								<input class = "form-control" type="text" name="FlightNumber" id="insert_flight_number" placeholder="Enter Flight Number">
+							    
+
+							<label for="Insert_DepartureDate"> Departure Date</label>
+							    <input class = "form-control" type=date name="Date" value="2015-01-01" id = "insert_depature_date">
+
+							<label for="Insert_ArrivalDelay"> Arrival Delay</label>
+							    <input class = "form-control" type=number name="ArrivalDelay" id = "insert_arrival_delay" placeholder="Enter Delay in Minutes">
+						</div>
+						<p> </p>
+						<input class="btn btn-warning" type="submit" value="Insert" > </input>
+					</form>
+					<p>{{insertResult}}</p>	
+
+					<form class = "form-control" action="http://172.22.94.218/oracle/delete" method="GET">
+						<h1> Delete Flight Record!</h1>
+						<label for="deleteRecord"> Record Number </label>
+						<input type = "number" class = "form-control" id = "delete" name="ID" placeholder="Enter Record Number">
+						<p> </p>
+					    <input class="btn btn-danger" type="submit" value="Submit" ></input>
+					</form>
+
+					<p>{{deleteResult}}</p>
+					<form class = "form-control" action = "http://172.22.94.218/oracle/update" method="GET">
+						<div>
+							<h1> Update Flight Record!</h1>
+							<label for="update_Carrier"> Carrier</label>
+							    <select class = "form-control" name="Carrier" id="update_carrier">
+							        <option value="UA" selected="selected">UA</option>
+									<option value="WN">WN</option>
+							        <option value="UA">UA</option>
+							        <option value="DA">DA</option>
+							        <option value="AA">AA</option>
+									<option value="XX">XX</option>
+							    </select>
+
+							<label for="update_DepartureAirport"> Departure Airport</label>
+							    <select class = "form-control" name="Departure" id = "update_depature_airport">
+							        <option value="IAD" selected="selected">IAD</option>
+							        <option value="ORD">ORD</option>
+									<option value="IAD">IAD</option>
+							    </select>
+
+							<label for="update_ArrivalAirport"> Arrival Airport</label>
+							    <select class = "form-control" name="Arrival" id = "update_arrival_airport">
+							        <option value="ORD" selected="selected">ORD</option>
+							        <option value="ORD">ORD</option>
+									<option value="TPA">TPA</option>
+							    </select>
+
+							<label for="update_FlightNumber"> Flight Number</label>
+								<input class = "form-control" type="text" name="FlightNumber" id="update_flight_number" placeholder="Enter Flight Number">
+							    
+
+							<label for="update_DepartureDate"> Departure Date</label>
+							    <input class = "form-control" type=date name="Date" value="2018-01-01" id = "update_depature_date">
+
+							<label for="update_ArrivalDelay"> Arrival Delay</label>
+							    <input class = "form-control" type=number name="ArrivalDelay" id = "update_arrival_delay" placeholder="Enter Delay in Minutes">
+						</div>
+						<p> </p>
+						<input class="btn btn-warning" type="submit" value="Update" > </input>
+					</form>
+					<p>{{updateResult}}</p>	
+
+
+					<form class = "form-control" action = "http://172.22.94.218/oracle/viewstat" method="GET">
+                        <h1>View Statistics! </h1>
+                        <label for="veiwStat"> Flight ID </label>
+                        <input type = "number" class = "form-control" id = "ID" name="ID" placeholder="Enter Flight ID">
+                        <p></p>
+                        <input class="btn btn-danger" type="submit" value="Submit" ></input>
+                    </form>
+
+<p>{{viewResult}}</p>
+<p>{{num}}</p>
+
+                    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+                    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
+
+
+					<!-- <form class = "form-control" actoin="http://172.22.94.218/oracle/update" method="GET">
+						<div>
+							<h1> Update Flight Record!</h1>
+							<label for="updateCarrier"> Carrier</label>
+							    <select class = "form-control" name="Carrier" id="update_carrier">
+							        <option value="UA" selected="selected">UA</option>
+									<option value="WN">WN</option>
+							        <option value="UA">UA</option>
+							        <option value="DA">DA</option>
+							        <option value="AA">AA</option>
+									<option value="XX">XX</option>
+							    </select>
+
+							<label for="updateDepartureAirport"> Departure Airport</label>
+							    <select class = "form-control" name="Departure" id = "update_depature_airport">
+							        <option value="IAD" selected="selected">IAD</option>
+							        <option value="ORD">ORD</option>
+									<option value="IAD">IAD</option>
+							    </select>
+
+							<label for="updateArrivalAirport"> Arrival Airport</label>
+							    <select class = "form-control" name="Arrival" id = "update_arrival_airport">
+							        <option value="ORD" selected="selected">ORD</option>
+							        <option value="ORD">ORD</option>
+									<option value="TPA">TPA</option>
+							    </select>
+
+							<label for="updateFlightNumber"> Flight Number</label>
+								<input class = "form-control" type="text" name="FlightNumber" id="update_flight_number" placeholder="Enter Flight Number"> </input>
+
+							<label for="updateDepartureDate"> Departure Date</label>
+							    <input class = "form-control" type=date name="Date" value="2018-01-01" id = "update_depature_date"> </input>
+
+							<label for="ArrivalDelay"> Arrival Delay</label>
+							    <input class = "form-control" type=number name="ArrivalDelay" id = "update_arrival_delay" placeholder="Enter Delay in Minutes"> </input>
+							
+						</div>
+						<p> </p>
+						<input class="btn btn-danger" type="submit" value="Submit"> </input>
+					</form>
+					<p>{{updateResult}}</p> -->
+		</div>	
+	</body>
+</html>
+
+
+
+
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript">
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	theme: "light1", // "light2", "dark1", "dark2"
+	animationEnabled: true, // change to true		
+	title:{
+		text: "Estimation of Delay based on Statistics"
+	},
+	axisX:{
+		  title : "Departure Delay"
+		}, 
+		axisY:{
+			title : "Possibility in Percentage (%) "
+		}, 
+	data: [
+	{
+		// Change type to "bar", "area", "spline", "pie",etc.
+		type: "column",
+		
+		dataPoints: [
+			{ label: "On Time",  y: {{viewResult.0}}  },
+			{ label: "Below 10 minutes", y: {{viewResult.1}}  },
+			{ label: "10 to 20 minutes", y: {{viewResult.2}}  },
+			{ label: "20 to 30 minutes",  y: {{viewResult.3}}  },
+			{ label: "30 to 40 minutes",  y: {{viewResult.4}}  }, 
+			{ label: "40 to 50 minutes",  y: {{viewResult.5}}  }, 
+			{ label: "50 to 60 minutes",  y: {{viewResult.6}}  }, 
+			{ label: "1 to 2 hours",  y: {{viewResult.7}}  }, 
+			{ label: "2 to 3 hours",  y: {{viewResult.8}}  }, 
+			{ label: "More than 3 hours",  y: {{viewResult.9}}  }
+		]
+	}
+	]
+});
+chart.render();
+
+}
+</script>
+</head>
+<body>
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
+</body>
+</html>
